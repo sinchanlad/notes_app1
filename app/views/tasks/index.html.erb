@@ -24,17 +24,17 @@
       </div>
       <div class="panel-body">
         <dl>
-          <dt>Description</dt>
+          <dt>Assigned Task</dt>
           <dd><%= task.description %></dd>
 
-          <dt>Contact</dt>
-          <dd><%= task.contact_id %></dd>
+          <dt>Owner</dt>
+          <dd><%= Contact.find_by({:id => task.contact_id}).name %></dd>
 
-          <dt>Due on</dt>
+          <dt>Due by</dt>
           <dd><%= task.due_on.strftime('%b %e, %Y.') %></dd>
 
           <dt>Event</dt>
-          <dd><%= task.event_id %></dd>
+          <dd><%= Event.find_by({:id => task.event_id}).name %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">
