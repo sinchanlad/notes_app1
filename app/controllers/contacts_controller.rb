@@ -15,7 +15,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new
     @contact.name = params[:name]
     @contact.phone_number = params[:phone_number]
-    @contact.user_id = params[:user_id]
+    @contact.user_id = current_user.id
     @contact.email = params[:email]
 
     if @contact.save
@@ -34,7 +34,7 @@ class ContactsController < ApplicationController
 
     @contact.name = params[:name]
     @contact.phone_number = params[:phone_number]
-    @contact.user_id = params[:user_id]
+    @contact.user_id = current_user.id
     @contact.email = params[:email]
 
     if @contact.save
