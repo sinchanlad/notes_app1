@@ -17,7 +17,7 @@ class TasksController < ApplicationController
     @task.contact_id = params[:contact_id]
     @task.due_on = Chronic.parse(params[:due_on])
     @task.event_id = params[:event_id]
-
+    @current_event = @task.event_id
     if @task.save
       redirect_to "/tasks", :notice => "Task created successfully."
     else
