@@ -31,7 +31,7 @@
           <dd><%= task.contact_id %></dd>
 
           <dt>Due on</dt>
-          <dd><%= task.due_on %></dd>
+          <dd><%= task.due_on.strftime('%b %e, %Y.') %></dd>
 
           <dt>Event</dt>
           <dd><%= task.event_id %></dd>
