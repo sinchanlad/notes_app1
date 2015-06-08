@@ -16,7 +16,7 @@
   </style>
 
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "default" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -35,22 +35,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/" class="navbar-brand">NotesApp1</a>
+        <a href="/" class="navbar-brand">NotesApp</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/tasks">Tasks</a></li>
-          <li><a href="/contacts">Contacts</a></li>
-          <li><a href="/events">Events</a></li>
-          <li><a href="/notes">Notes</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
+          <li><a href="/events">My Events</a></li>
+          <li><a href="/contacts">My Contacts</a></li>
+          <li><a href="/tasks/new">Add Tasks</a></li>
+          <li><a href="/notes/new">Add Notes</a></li>
+<!--           <li><a href="#">About</a></li>
+ -->        </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <% if 1 > 2 %>
-            <li><a href="/users/edit">Oscar the Grouch</a></li>
+          <% if current_user.present? %>
+            <li><a href="/users/edit">User: <%=current_user.email%></a></li>
             <li><a href="/users/sign_out" data-method="delete" rel="nofollow">Sign out</a></li>
           <% else %>
             <li><a href="/users/sign_up">Sign up</a></li>

@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    @events = current_user.events
   end
 
   def show
@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new
     @event.name = params[:name]
-    @event.user_id = params[:user_id]
+    @event.user_id = current_user.id
 
     if @event.save
       redirect_to "/events", :notice => "Event created successfully."
@@ -31,7 +31,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     @event.name = params[:name]
-    @event.user_id = params[:user_id]
+    @event.user_id = current_user.id
 
     if @event.save
       redirect_to "/events", :notice => "Event updated successfully."

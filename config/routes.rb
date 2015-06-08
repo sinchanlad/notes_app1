@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root 'events#index'
   # Routes for the Task resource:
   # CREATE
   get "/tasks/new", :controller => "tasks", :action => "new"

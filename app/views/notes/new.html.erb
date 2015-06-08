@@ -28,10 +28,9 @@
               Event
             </label>
             <div class="col-sm-10">
-              <input type="text" id="event_id" name="event_id" placeholder="Event" class="form-control" value="<%= @note.event_id %>">
-            </div>
+              <%= select_tag :event_id, options_from_collection_for_select(current_user.events.order("name ASC"), :id, :name), :class => "form-control"%>
           </div>
-
+          </div>
           <!-- Label and input for note_body -->
           <div class="form-group">
             <label for="note_body" class="col-sm-2 control-label">
