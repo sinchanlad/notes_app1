@@ -24,11 +24,13 @@
       </div>
       <div class="panel-body">
         <dl>
-          <dt>Note Count</dt>
-          <dd><%= Note.where({:event_id => event.id}).count %></dd>
+          <dt>Notes Taken</dt>
+          <dd><%=event.notes.count%>
+
+          </dd>
 
           <dt>Tasks</dt>
-          <dd><%= Task.where({:event_id => event.id}).count %></dd>
+          <dd><%= event.tasks.count %></dd>
 
           <!-- <dt>User</dt>
           <dd><%= current_user.email %></dd> -->

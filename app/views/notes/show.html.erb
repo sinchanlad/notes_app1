@@ -11,7 +11,7 @@
           <div class="col-md-12">
             <dl class="dl-horizontal">
               <dt>Event</dt>
-              <dd><%= Event.find_by({:id => @note.event_id}).name %></dd>
+              <dd><%= @note.event.name %></dd>
 
               <dt>Note body</dt>
               <dd><%= @note.note_body %></dd>

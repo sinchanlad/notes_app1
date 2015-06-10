@@ -28,13 +28,13 @@
           <dd><%= task.description %></dd>
 
           <dt>Owner</dt>
-          <dd><%= Contact.find_by({:id => task.contact_id}).name %></dd>
+          <dd><%= task.contact.name %></dd>
 
           <dt>Due by</dt>
           <dd><%= task.due_on.strftime('%b %e, %Y.') %></dd>
 
           <dt>Event</dt>
-          <dd><%= Event.find_by({:id => task.event_id}).name %></dd>
+          <dd><%= task.event.name %></dd>
 
         </dl>
         <div class="btn-group btn-group-justified">

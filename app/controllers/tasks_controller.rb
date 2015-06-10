@@ -34,7 +34,7 @@ class TasksController < ApplicationController
 
     @task.description = params[:description]
     @task.contact_id = params[:contact_id]
-    @task.due_on = params[:due_on]
+    @task.due_on = Chronic.parse(params[:due_on])
     @task.event_id = params[:event_id]
 
     if @task.save

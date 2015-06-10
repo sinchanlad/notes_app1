@@ -38,7 +38,7 @@
               Contact
             </label>
             <div class="col-sm-10">
-              <input type="text" id="contact_id" name="contact_id" placeholder="Contact" class="form-control" value="<%= @task.contact_id %>">
+             <%= select_tag :contact_id, options_from_collection_for_select(current_user.contacts.order("name ASC"), :id, :name, @task.contact_id), :class => "form-control"%>
             </div>
           </div>
 
@@ -48,8 +48,13 @@
               Due on
             </label>
             <div class="col-sm-10">
-              <input type="text" id="due_on" name="due_on" placeholder="Due on" class="form-control" value="<%= @task.due_on %>">
+              <div class='input-group date' id='datetimepicker1'>
+              <input type='text' class="form-control" name="due_on" id="due_on" value="<%= @task.due_on %>">
+              <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+              </span>
             </div>
+          </div>
           </div>
 
           <!-- Label and input for event_id -->
@@ -58,7 +63,7 @@
               Event
             </label>
             <div class="col-sm-10">
-              <input type="text" id="event_id" name="event_id" placeholder="Event" class="form-control" value="<%= @task.event_id %>">
+              <%= select_tag :event_id, options_from_collection_for_select(current_user.events.order("name ASC"), :id, :name, @task.event_id), :class => "form-control"%>
             </div>
           </div>
 
@@ -79,3 +84,8 @@
 
 
 <!-- End responsive panel example -->
+<script type="text/javascript">
+  $(function () {
+    $('#datetimepicker1').datetimepicker(defaultDate: "<%= @task.due_on %>");
+  });
+</script>
