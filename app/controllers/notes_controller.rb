@@ -17,7 +17,7 @@ class NotesController < ApplicationController
     @note.note_body = params[:note_body]
 
     if @note.save
-      redirect_to "/notes", :notice => "Note created successfully."
+      redirect_to "/events", :notice => "Note created successfully."
     else
       render 'new'
     end
@@ -34,7 +34,7 @@ class NotesController < ApplicationController
     @note.note_body = params[:note_body]
 
     if @note.save
-      redirect_to "/notes", :notice => "Note updated successfully."
+      redirect_to "/events", :notice => "Note updated successfully."
     else
       render 'edit'
     end
@@ -45,6 +45,6 @@ class NotesController < ApplicationController
 
     @note.destroy
 
-    redirect_to "/notes", :notice => "Note deleted."
+    redirect_to "/events", :notice => "Note deleted."
   end
 end

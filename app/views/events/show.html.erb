@@ -10,16 +10,43 @@
         <div class="row">
           <div class="col-md-12">
             <dl class="dl-horizontal">
-              <dt>Notes</dt>
-              <% @event.notes.each do |note| %>
-              <dd><%= note.note_body %></dd>
-              <% end %>
 
-              <dt>Tasks</dt>
-              <% @event.tasks.each do |to_do| %>
-              <dd><%= to_do.description %></dd>
-              <dd><%= to_do.due_on %></dd>
-              <% end %>
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-success">
+                Notes</li>
+                <% @event.notes.each do |note| %>
+                  <li class="list-group-item"><%= note.note_body %>
+                    <div class="btn-group btn-group-justified">
+                      <a href="/notes/<%= note.id %>/edit" class="btn btn-primary">
+                      <i class="fa fa-edit"> Edit Note</i>
+                      </a>
+                      <a href="/delete_note/<%= note.id %>" class="btn btn-danger" rel="nofollow">
+                      <i class="fa fa-trash-o"> Delete Note</i>
+                      </a>
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
+
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-success">
+                Tasks</li>
+                <% @event.tasks.each do |to_do| %>
+                  <li class="list-group-item"><%= to_do.description %> - Due: <b><%= to_do.due_on.strftime('%b %e, %Y.') %></b>
+                    <div class="btn-group btn-group-justified">
+                      <a href="/tasks/<%= to_do.id %>/edit" class="btn btn-primary">
+                      <i class="fa fa-edit"> Edit Task</i>
+                      </a>
+                      <a href="/delete_task/<%= to_do.id %>" class="btn btn-danger" rel="nofollow">
+                      <i class="fa fa-trash-o"> Delete Task</i>
+                      </a>
+                    </div>
+
+                  </li>
+                <% end %>
+              </ul>
+
+
             </dl>
             <div class="btn-group btn-group-justified">
               <a href="/events" class="btn btn-primary">

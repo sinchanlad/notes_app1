@@ -19,7 +19,7 @@ class TasksController < ApplicationController
     @task.event_id = params[:event_id]
     @current_event = @task.event_id
     if @task.save
-      redirect_to "/tasks", :notice => "Task created successfully."
+      redirect_to "/events", :notice => "Task created successfully."
     else
       render 'new'
     end
@@ -38,7 +38,7 @@ class TasksController < ApplicationController
     @task.event_id = params[:event_id]
 
     if @task.save
-      redirect_to "/tasks", :notice => "Task updated successfully."
+      redirect_to "/events", :notice => "Task updated successfully."
     else
       render 'edit'
     end
@@ -49,6 +49,6 @@ class TasksController < ApplicationController
 
     @task.destroy
 
-    redirect_to "/tasks", :notice => "Task deleted."
+    redirect_to "/events", :notice => "Task deleted."
   end
 end
